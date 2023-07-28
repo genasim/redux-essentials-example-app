@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import PostAuthor from '../../components/PostAuthor';
+import TimeAgo from '../../components/TimeAgo';
 
 function SinglePostPage({ match }) {
     const { postId } = match.params
@@ -23,9 +24,12 @@ function SinglePostPage({ match }) {
                 <h2>{post.title}</h2>
                 <PostAuthor userId={post.user} />
                 <p className="post-content">{post.content}</p>
-                <Link to={`/editPost/${post.id}`} className={'button'}>
-                    Edit post
-                </Link>
+                <TimeAgo />
+                <div>
+                    <Link to={`/editPost/${post.id}`} className={'button'}>
+                        Edit post
+                    </Link>
+                </div>
             </article>
         </section>
     );
