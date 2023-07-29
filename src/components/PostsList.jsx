@@ -1,12 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PostAuthor from './PostAuthor';
 import TimeAgo from './TimeAgo';
 import ReactionButtons from './ReactionButton';
+import { fetchPosts, selectAllPosts } from '../features/posts/postsSlice';
 
 function PostsList() {
-  const posts = useSelector(state => state.posts)
+  const posts = useSelector(selectAllPosts)
+
+  const dispatch = useDispatch()
+  const postStatus = useSelector(state => state.posts.status)
+  
+  //  Fetch posts on mount and update
+  useEffect(() => {
+    if (postStatus === 'idle')
+      dispatch(fetchPosts())
+  }, [postStatus, dispatch])  //  <- Deps for using the effect
+
 
   const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date))
 
