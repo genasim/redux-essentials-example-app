@@ -5,7 +5,7 @@ import PostAuthor from './PostAuthor';
 import TimeAgo from './TimeAgo';
 import ReactionButtons from './ReactionButton';
 import Spinner from './Spinner'
-import { fetchPosts, selectAllPosts } from '../features/posts/postsSlice';
+import { fetchPosts, selectAllPosts } from '../features/postsSlice';
 
 const PostExcerpt = ({ post }) => {
   return (

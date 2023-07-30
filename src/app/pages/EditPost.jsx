@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { selectPostById, updatePost } from '../../features/posts/postsSlice';
+import { selectPostById, updatePost } from '../../features/postsSlice';
 
 function EditPostForm({ match }) {
   const { postId } = match.params

@@ -11,6 +11,8 @@ import PostsList from './components/PostsList'
 import AddPostForm from './components/AddPostForm'
 import SinglePostPage from './app/pages/SinglePost'
 import EditPostForm from './app/pages/EditPost'
+import UsersList from './app/pages/UsersPage'
+import UserPosts from './app/pages/UserPosts'
 
 function App() {
   return (
@@ -28,8 +30,10 @@ function App() {
               </React.Fragment>
             )}
           />
-          <Route exact path={'/posts/:postId'} component={SinglePostPage}/>
+          <Route exact path="/posts/:postId" component={SinglePostPage}/>
           <Route exact path="/editPost/:postId" component={EditPostForm} />
+          <Route exact path="/users" component={UsersList}/>
+          <Route exact path="/users/:userId" component={UserPosts}/>
           <Redirect to="/" />
         </Switch>
       </div>

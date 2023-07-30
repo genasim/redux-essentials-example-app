@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import PostAuthor from '../../components/PostAuthor';
 import ReactionButtons from '../../components/ReactionButton';
 import TimeAgo from '../../components/TimeAgo';
-import { selectPostById } from '../../features/posts/postsSlice';
+import { selectPostById } from '../../features/postsSlice';
 
 function SinglePostPage({ match }) {
     const { postId } = match.params
